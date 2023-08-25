@@ -12,7 +12,6 @@ app.get('/', (req, res) => {
 app.get('/:numb', (req, res) => {
     const n = req.params.numb
     const updatedNumb = n-1
-    console.log(typeof updatedNumb)
     res.send(`Number of bottles is ${updatedNumb}`)
 })
 
