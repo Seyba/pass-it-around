@@ -11,8 +11,12 @@ app.get('/', (req, res) => {
 
 app.get('/:numb', (req, res) => {
     const n = req.params.numb
-    const updatedNumb = n-1
-    res.send(`Number of bottles is ${updatedNumb}`)
+    const { numb } = req.params
+    const updatedNumb = numb -1
+    if (numb <= 0){
+        return res.send('<h1><a href="/">Start over</a></h1>')
+    }
+    res.send(`<h1>Number of bottles is ${updatedNumb} <a href="/${updatedNumb}">Take one down!</a></h1>`)
 })
 
 app.listen(port, () => {
